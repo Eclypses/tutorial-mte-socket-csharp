@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <AssemblyName>SocketClientWindowsCS</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\common\AppSettings.cs" Link="AppSettings.cs" />
+    <Compile Include="..\common\MteSetupInfo.cs" Link="MteSetupInfo.cs" />
+    <Compile Include="..\ecdh\src\cs\EcdhP256.cs" Link="EcdhP256.cs" />
+    <Compile Include="..\ecdh\src\cs\IEcdhP256.cs" Link="IEcdhP256.cs" />
+    <Compile Include="..\MTE\src\cs\IMteBase.cs" Link="IMteBase.cs" />
+    <Compile Include="..\MTE\src\cs\IMteCore.cs" Link="IMteCore.cs" />
+    <Compile Include="..\MTE\src\cs\IMteDec.cs" Link="IMteDec.cs" />
+    <Compile Include="..\MTE\src\cs\IMteEnc.cs" Link="IMteEnc.cs" />
+    <Compile Include="..\MTE\src\cs\IMteFlenEnc.cs" Link="IMteFlenEnc.cs" />
+    <Compile Include="..\MTE\src\cs\IMteMkeDec.cs" Link="IMteMkeDec.cs" />
+    <Compile Include="..\MTE\src\cs\IMteMkeEnc.cs" Link="IMteMkeEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteBase.cs" Link="MteBase.cs" />
+    <Compile Include="..\MTE\src\cs\MteCiphers.cs" Link="MteCiphers.cs" />
+    <Compile Include="..\MTE\src\cs\MteDec.cs" Link="MteDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesBase.cs" Link="MteDelegatesBase.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesDec.cs" Link="MteDelegatesDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesEnc.cs" Link="MteDelegatesEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesFlenEnc.cs" Link="MteDelegatesFlenEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesJail.cs" Link="MteDelegatesJail.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesMkeDec.cs" Link="MteDelegatesMkeDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteDelegatesMkeEnc.cs" Link="MteDelegatesMkeEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteDrbgs.cs" Link="MteDrbgs.cs" />
+    <Compile Include="..\MTE\src\cs\MteEnc.cs" Link="MteEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteFlenEnc.cs" Link="MteFlenEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteHashes.cs" Link="MteHashes.cs" />
+    <Compile Include="..\MTE\src\cs\MteInitInfo.cs" Link="MteInitInfo.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropBase.cs" Link="MteInteropBase.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropDec.cs" Link="MteInteropDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropEnc.cs" Link="MteInteropEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropFlenEnc.cs" Link="MteInteropFlenEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropJail.cs" Link="MteInteropJail.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropMkeDec.cs" Link="MteInteropMkeDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteInteropMkeEnc.cs" Link="MteInteropMkeEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteJail.cs" Link="MteJail.cs" />
+    <Compile Include="..\MTE\src\cs\MteMkeDec.cs" Link="MteMkeDec.cs" />
+    <Compile Include="..\MTE\src\cs\MteMkeEnc.cs" Link="MteMkeEnc.cs" />
+    <Compile Include="..\MTE\src\cs\MteStatus.cs" Link="MteStatus.cs" />
+    <Compile Include="..\MTE\src\cs\MteVerifiers.cs" Link="MteVerifiers.cs" />
+    <Compile Include="..\MTE\src\cs\MteVersion.cs" Link="MteVersion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\common\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ecdh\lib\mtesupport-ecdh.dll" Link="mtesupport-ecdh.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\MTE\lib\mte.dll" Link="mte.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="libmte.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="mte.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
